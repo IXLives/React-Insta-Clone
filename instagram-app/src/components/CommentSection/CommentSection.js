@@ -1,12 +1,29 @@
 import React from 'react';
+import CommentInput from './CommentInput';
 
 class CommentSection extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            typedComment: '',
+            typedComment: {
+                id: '0',
+                username: 'noone',
+                text: '',
+            },
         }
     }
+
+    addNewComment = thisComment => {
+        const newComment = {
+            id: '1',
+            username: 'username',
+            text: thisComment,
+        };
+
+        this.setState({
+            typedComment: [...this.setState.typedComment, newComment]
+        });
+    };
 
     render() {
         return (
@@ -18,6 +35,8 @@ class CommentSection extends React.Component {
                         </div>
                     )
                 })}
+                <p>Placeholder Timestamp</p>
+                <CommentInput addNewComment = {this.addNewComment}/>
             </div>
         )
     }

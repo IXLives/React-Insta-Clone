@@ -15,6 +15,7 @@
 .post {
     display: flex;
     flex-flow: column nowrap;
+    margin: 10px;
 }
 
 .header {
@@ -48,4 +49,19 @@
     display: flex;
     flex-flow: row nowrap;
     margin: 5px 0 5px 10px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.lowerContent {
+    display: flex;
+    flex-flow: column wrap;
+    border: 1px solid lightgray;
+}
+
+.comments {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    margin-left: 10px;
 }
