@@ -2,6 +2,7 @@ import React from 'react';
 import likePic from '../../assets/likePic.png';
 import comment from '../../assets/comment.png';
 import CommentSection from '../CommentSection/CommentSection';
+import './PostContainer.css';
 
 class PostContainer extends React.Component {
     constructor(props){
@@ -13,20 +14,20 @@ class PostContainer extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className = 'userPosts'>
                 {this.props.profiles.map(profile => {
                     return (
-                        <div>
-                        <div className = 'Header'>
+                        <div className = 'post'>
+                        <div className = 'header'>
                             <img src = {profile.thumbnailUrl} alt = 'thumbnail' />
                             <h3>{profile.username}</h3>
                         </div>
-                        <img src = {profile.imageUrl} alt = 'image' />
+                        <img src = {profile.imageUrl} alt = 'image'  className = 'mainImage'/>
                         <div className = 'reactions'>
                             <img src = {likePic} alt = 'likePic' />
                             <img src = {comment} alt = 'comment' />
                         </div>
-                        <h3>{profile.likes} likes</h3>
+                        <p className = 'likes'><strong>{profile.likes}</strong> likes</p>
                         <CommentSection comments = {profile.comments} />
                         </div>
                     )

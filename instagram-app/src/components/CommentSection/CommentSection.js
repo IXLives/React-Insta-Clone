@@ -10,7 +10,7 @@ class CommentSection extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className = 'comments'>
                 {this.props.comments.map(comment => {
                     return (
                         <div className = 'comment'>
