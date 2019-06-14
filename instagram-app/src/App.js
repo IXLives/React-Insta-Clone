@@ -15,32 +15,35 @@ class App extends React.Component {
   }
 
   addNewComment = (comment, postId) => {
-    const newState = []; 
-    this.state.profiles.forEach( id => {
+    const newState = [];
+    this.state.profiles.forEach(id => {
       if (id.id == postId) {
         id.comments.push(comment);
         console.log(this.state.profiles);
       }
     });
-    this.state.profiles.forEach( id => {
+    this.state.profiles.forEach(id => {
       newState.push(id);
     });
     console.log(newState);
     this.setState({ profiles: newState });
-  }
+  };
 
   componentDidMount() {
-    this.setState({ profiles: dummyData })
+    this.setState({ profiles: dummyData });
   }
 
   render() {
     return (
-      <div className = 'App'>
+      <div className="App">
         <SearchBar />
 
-        <PostContainer profiles = {this.state.profiles} addNewComment = {this.addNewComment} />
+        <PostContainer
+          profiles={this.state.profiles}
+          addNewComment={this.addNewComment}
+        />
       </div>
-    )
+    );
   }
 }
 
