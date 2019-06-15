@@ -17,7 +17,7 @@ class App extends React.Component {
   addNewComment = (comment, postId) => {
     const newState = [];
     this.state.profiles.forEach(id => {
-      if (id.id == postId) {
+      if (id.id === postId) {
         id.comments.push(comment);
         console.log(this.state.profiles);
       }
@@ -27,6 +27,20 @@ class App extends React.Component {
     });
     console.log(newState);
     this.setState({ profiles: newState });
+  };
+
+  likePost = (post) => {
+    const newState = [];
+    this.state.profiles.forEach(id => {
+      if (id.id === post) {
+        id.likes += 1;
+        console.log(id.likes);
+      }
+    });
+    this.state.profiles.forEach(id => {
+      newState.push(id);
+    });
+    this.setState({ profiles: newState })
   };
 
   componentDidMount() {
@@ -41,6 +55,7 @@ class App extends React.Component {
         <PostContainer
           profiles={this.state.profiles}
           addNewComment={this.addNewComment}
+          likePost={this.likePost}
         />
       </div>
     );

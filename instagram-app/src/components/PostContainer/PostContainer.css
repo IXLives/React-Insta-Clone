@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+.reactions button {
+    background-color: white;
+    border: none;
+}
+
 .userPosts {
     display: flex;
     flex-flow: column nowrap;

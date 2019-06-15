@@ -1,9 +1,8 @@
 import React from "react";
-import likePic from "../../assets/likePic.png";
-import comment from "../../assets/comment.png";
 import CommentSection from "../CommentSection/CommentSection";
 import "./PostContainer.css";
 import PropTypes from "prop-types";
+import Reactions from './Reactions';
 
 function PostContainer(props) {
   return (
@@ -18,8 +17,7 @@ function PostContainer(props) {
             <img src={profile.imageUrl} alt="image" className="mainImage" />
             <div className="lowerContent">
               <div className="reactions">
-                <img src={likePic} alt="likePic" />
-                <img src={comment} alt="comment" />
+                <Reactions profile = {profile} likePost = {props.likePost}/>
               </div>
               <div className="likes">
                 <p>
