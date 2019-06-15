@@ -7,7 +7,7 @@ import withAuthenticate from './components/authentication/withAuthenticate';
 
 import "./App.css";
 
-const componentFromWithAuthenticate = withAuthenticate(PostsPage);
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
 
 class App extends React.Component {
   constructor() {
@@ -73,6 +73,6 @@ class App extends React.Component {
   }
 }
 
-console.log(componentFromWithAuthenticate);
+console.log(ComponentFromWithAuthenticate);
 
 export default App;
