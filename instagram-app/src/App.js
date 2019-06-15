@@ -2,9 +2,12 @@ import React from "react";
 import dummyData from "./dummy-data";
 
 import SearchBar from "./components/SearchBar/SearchBar";
-import PostContainer from "./components/PostContainer/PostContainer";
+import PostsPage from './components/PostContainer/PostsPage';
+import withAuthenticate from './components/authentication/withAuthenticate';
 
 import "./App.css";
+
+const componentFromWithAuthenticate = withAuthenticate(PostsPage);
 
 class App extends React.Component {
   constructor() {
@@ -13,6 +16,7 @@ class App extends React.Component {
       profiles: []
     };
   }
+
 
   filterBySearch = search => {
     const newState = this.state.profiles.filter(
@@ -59,14 +63,16 @@ class App extends React.Component {
       <div className="App">
         <SearchBar filterBySearch={this.filterBySearch} />
 
-        <PostContainer
-          profiles={this.state.profiles}
-          addNewComment={this.addNewComment}
-          likePost={this.likePost}
+        <PostsPage
+         profiles={this.state.profiles}
+         addNewComment={this.addNewComment}
+         likePost={this.likePost}
         />
       </div>
     );
   }
 }
+
+console.log(componentFromWithAuthenticate);
 
 export default App;
