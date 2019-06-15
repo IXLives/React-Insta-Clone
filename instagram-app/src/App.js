@@ -14,33 +14,40 @@ class App extends React.Component {
     };
   }
 
+  filterBySearch = search => {
+    const newState = this.state.profiles.filter(
+      profile => profile.username === search
+    );
+    this.setState({ profiles: newState });
+  };
+
   addNewComment = (comment, postId) => {
     const newState = [];
     this.state.profiles.forEach(id => {
       if (id.id === postId) {
         id.comments.push(comment);
-        console.log(this.state.profiles);
+        //console.log(this.state.profiles);
       }
     });
     this.state.profiles.forEach(id => {
       newState.push(id);
     });
-    console.log(newState);
+    //console.log(newState);
     this.setState({ profiles: newState });
   };
 
-  likePost = (post) => {
+  likePost = post => {
     const newState = [];
     this.state.profiles.forEach(id => {
       if (id.id === post) {
         id.likes += 1;
-        console.log(id.likes);
+        //console.log(id.likes);
       }
     });
     this.state.profiles.forEach(id => {
       newState.push(id);
     });
-    this.setState({ profiles: newState })
+    this.setState({ profiles: newState });
   };
 
   componentDidMount() {
@@ -50,7 +57,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <SearchBar />
+        <SearchBar filterBySearch={this.filterBySearch} />
 
         <PostContainer
           profiles={this.state.profiles}

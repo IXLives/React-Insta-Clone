@@ -6,8 +6,8 @@ import profile from '../../assets/profile.png';
 import './SearchBar.css';
 
 class SearchBar extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             searchFor: ''
         }
@@ -15,6 +15,7 @@ class SearchBar extends React.Component {
 
     submitHandler = e => {
         e.preventDefault();
+        this.props.filterBySearch(this.state.searchFor);
         this.setState({ searchFor: '' });
     };
 

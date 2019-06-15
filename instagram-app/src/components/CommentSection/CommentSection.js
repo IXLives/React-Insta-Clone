@@ -3,7 +3,7 @@ import CommentInput from "./CommentInput";
 
 class CommentSection extends React.Component {
   constructor(props) {
-    console.log(props);
+    //console.log(props);
     super(props);
     this.state = {
       typedComment: {
